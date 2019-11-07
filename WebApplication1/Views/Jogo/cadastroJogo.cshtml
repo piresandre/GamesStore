@@ -1,0 +1,33 @@
+﻿@model JogoModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    @TempData["msg"]
+    <Message Mensagem="Genero cadastrado"></Message>
+    <form action="/Jogo/CadastrarJogo" method="post">
+        <h1>Cadastro de jogo</h1>
+        <div class="form-group">
+            <label>Nome</label>
+            <input asp-for="Nome" type="text" class="form-control" id="nome" aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label asp-for="plataforma"></label>
+            <select asp-for="plataforma"
+                    asp-items="@Html.GetEnumSelectList<Plataforma>()">
+                <option>Selecione</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Genero"></label>
+            <select asp-for="GeneroId" asp-items="@ViewBag.genero">
+                <option>Selecione</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</body>
+</html>

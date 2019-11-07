@@ -1,0 +1,18 @@
+﻿@model List<JogoModel>
+@{
+    ViewData["Title"] = "ListaDeJogos";
+}
+
+@foreach (var jogo in Model)
+{
+<div class="card mt-3">
+    <div class="card-body">
+        <h4 data-id="@jogo.Id">@jogo.Nome</h4>
+        <small>@jogo.plataforma</small><br>
+        <small>@jogo.Genero.Nome</small>
+        <a href="/Jogo/FormAlteraJogo/@jogo.Id"><button class="btn btn-danger">Editar</button></a>
+        <a href="/Jogo/RemoverJogo/@jogo.Id"><button class="btn btn-danger">Remover</button></a>
+    </div>
+</div>
+}
+
